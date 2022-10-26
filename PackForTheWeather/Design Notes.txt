@@ -1,0 +1,45 @@
+﻿APP PURPOSE:
+PackForTheWeather returns a personalized outfit packing list based on user input 
+for destination, trip duration and comfort preference. 
+
+APP Function:
+The app will receive input of location, duration and a user defined comfort zone.
+The app will check the weather for the provided location via an API.
+An outfit packing list will be generated based on the location forecast, 
+trip duration and customized to the user temperature comfort zone.
+
+Possible Feature Updates:
+Ability to edit the packing list to add and subtract items as well as change quantities. 
+List converted to pdf download and/or printing capabilities with checkboxes.
+Display forecast as well.
+
+
+Structure:
+
+end result - custom pack list, according to forecast, duration, temperature, comfort zone
+
+example: if 50, cool weather applies. 
+
+
+variables slide at first with colder, warmer
+
+algo
+get input - use API exception handling from apiweatherforecast app
+based on input
+	get weather forecast
+		parse forecast for duration input
+		1= wind, rain, temp, etc
+		2 = "" 
+		...
+	store comfort zone in variable	
+	indicate comfort zone
+	indicate duration
+	if then... 
+
+
+weather 
+	=temp, rain, wind, min max?
+	= day 1 forecast
+	= day 2 forecast
+	= day 3 forecast
+

@@ -14,5 +14,9 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: url('/css/NewFolder/istockphoto-1084287002-1024x1024.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #FFFFFF;
 }

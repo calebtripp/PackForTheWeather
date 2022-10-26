@@ -18,14 +18,17 @@ namespace PackForTheWeather
             Console.WriteLine("Please enter the zip code you're traveling to");
             var userZip = Console.ReadLine();
 
-            Console.WriteLine("Consider how YOU feel compared to most people you know with regards to temperature. " +
-                "Please respond with 'warmer', 'cooler', or 'same'. For example, I typically feel warmer than those " +
-                "around me so I would respond with warmer. We'll use this information to slightly adjust your outfit " +
-                "so a warmer person would be wearing shorts before a cooler person.");
+            Console.WriteLine("Consider how YOU feel about temperature compared to most people you know..." +
+                "Do you typically feel warmer than most? colder than most? about the same?." +
+                "Please respond with 'warmer', 'colder', or 'same'. For example, I typically feel warmer than those " +
+                "around me so my response would be warmer. We'll use this information to slightly adjust your outfit " +
+                "so someone feeling warmer than most would wear shorts on a day that someone who was colder might not be ready for yet.");
+
+          var q =  "please fill in the blank using colder, warmer, or same in the following sentence. I typically feel _______than most people around me";
 
             string warmer = Console.ReadLine().ToLower();
             string same = Console.ReadLine().ToLower();
-            string cooler = Console.ReadLine().ToLower();
+            string colder = Console.ReadLine().ToLower();
 
             var geoLocate = $"http://api.openweathermap.org/geo/1.0/zip?zip={userZip},USA&appid={APIKey}";
             var coordinates = client.GetStringAsync(geoLocate).Result;
@@ -43,7 +46,6 @@ namespace PackForTheWeather
             var forecast = client.GetStringAsync(forecastReq).Result;
              
             //apparently openweather only allows calls every 3 hours for forecast, soo... could be an issue if performing multiple same day. 
-
         }
     }
 }
