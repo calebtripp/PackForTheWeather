@@ -30,7 +30,11 @@ namespace PackForTheWeather
             var forecastReq = $"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={APIKey}&units =imperial";
             var weather = client.GetStringAsync(forecastReq).Result;
             var forecast = $"\nThe forecast for {destination} is \n{weather}";
-            return forecast;           
+            return forecast;        
+            
+            // next step is parse forecast.
+            // reference api weater app and possibly something like postman??
+            // Read more on the docs for .notation to see if that simplifies things. 
         }
     }
 }
