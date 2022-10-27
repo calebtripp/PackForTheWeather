@@ -4,19 +4,54 @@ html {
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;     
+}
+
+h1 {
+    position: center;
+    color: white;
+    font-weight:700;
+    font-size: 10;   
+}
+
+h2 {
+    position: center;
+    color: white;
+   
+}
+
+h3 {
+    position: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
 }
 
 body {
     margin-bottom: 60px;
-    background-image: url('/css/NewFolder/istockphoto-1084287002-1024x1024.jpg');
+    background-image: url('/css/Images/laura-vinck-Hyu76loQLdk-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     color: #FFFFFF;
 }
+
+form{
+    color: white;
+    font-weight: 500; 
+}
+
+p{
+    position: center;
+    font-size: 24px;
+    font-weight:500;
+    color: white;
+}
+
+
+// border: 2px solid red;
