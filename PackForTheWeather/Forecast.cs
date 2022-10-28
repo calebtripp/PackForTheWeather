@@ -22,10 +22,11 @@ namespace PackForTheWeather
 
 
             var coordinatesFromZip = $"http://api.openweathermap.org/geo/1.0/zip?zip={zip},US&appid={APIKey}";
-            var coordinates = client.GetStringAsync(coordinatesFromZip).Result;          
-            var destination = JObject.Parse(coordinates).GetValue("name").ToString();
-            var lon = JObject.Parse(coordinates).GetValue("lon").ToString();
-            var lat = JObject.Parse(coordinates).GetValue("lat").ToString();         
+            var coordinates = client.GetStringAsync(coordinatesFromZip).Result;
+            var destination = JObject.Parse(coordinates);
+            var name = destination.GetValue("name").ToString();
+            var lon =destination.GetValue("lon").ToString();
+            var lat = destination.GetValue("lat").ToString();         
 
             var forecastReq = $"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={APIKey}&units =imperial";
             var weather = client.GetStringAsync(forecastReq).Result;

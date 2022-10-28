@@ -1,62 +1,48 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
- 
-   @* <meta name="viewport" content="width=device-width, initial-scale=1">*@
-  @*  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
+    <h1 class="display-4">PackForTheWeather!</h1>
+    <p>When you're ready to pack for the weather,<br /> enter your information below and get packing!</p>
 </head>
-
 <body>
     <div class="text-center">
-        <h1 class="display-4">PackForTheWeather!</h1>
-        <p>When you're ready to pack for the weather,<br /> enter your information below and get packing!</p>          
     </div>
-
-    <div class="container">
-        <h2>Ready To Pack?</h2>
-        <h3>Please enter the zip and select your duration and weather feelfill out all fields below then click the I'M READY TO PACK button</h3>
-      
-        <form>
-            <div class="zip input">
-                <label for="usr">Destination Zip Code (US, 5 digits only)</label>
-                <input type="text" class="form-control" id="usr">
-            </div>
-
-            <div class="duration input">
-                <label for="sel1">Trip Duration in Days (Max 5)</label>
-                <select class="form-control" id="sel1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-
-            <div class="comfort input">
-                <label for="sel1">Temperature Comfort:</label>
-                <select class="form-control" id="sel1">
-                    <option>Concerning temperature, I typically feel...colder than others</option>
-                    <option>Concerning temperature, I typically feel...about the same as others</option>
-                    <option>Concerning temperature, I typically feel...warmer than others</option>
-                </select>
-            </div>
-        </form>
-        <br>
-        <button type="button" class="btn btn-primary btn-lg btn-block">I'M READY TO PACK!</button>
-
+    <div class="input">
+        <div class="container">
+            <form>
+                <div class="zip input">
+                    <label for="usr">Destination Zip Code (US, 5 digits only)</label>
+                    <input type="text" class="form-control" id="usr">
+                </div>
+                <div class="duration input">
+                    <label for="sel1">Trip Duration in Days (Max 5)</label>
+                    <select class="form-control" id="sel1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="comfort input">
+                    <label for="sel1">Temperature Comfort:</label>
+                    <select class="form-control" id="sel1">
+                        <option>Concerning temperature, I typically feel...colder than others</option>
+                        <option>Concerning temperature, I typically feel...about the same as others</option>
+                        <option>Concerning temperature, I typically feel...warmer than others</option>
+                    </select>
+                </div>
+            </form>
+            <br>
+            <button type="button" class="btn btn-primary btn-lg btn-block">I'M READY TO PACK!</button>
+        </div>
     </div>
-
 </body>
-
 </html>
+
 
 
 
