@@ -1,8 +1,10 @@
-﻿namespace PackForTheWeather.Models
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace PackForTheWeather.Models
 {
     public class ColdOutfit
     {      
-        public static void MakeColdOutfit()
+        public static string MakeColdOutfit()
         {
             Outfit coldOutfit = new Outfit();
 
@@ -15,6 +17,8 @@
             coldOutfit.windAcc = "";
             coldOutfit.rainAcc = "□ Umbrella";
 
+            var coldList = coldOutfit.ToString(); // QQQQQQQ is there a way to get this to work?
+
             var coldPackList = new List<string>();
             coldPackList.Add(coldOutfit.top);
             coldPackList.Add(coldOutfit.bottom);
@@ -25,9 +29,11 @@
             coldPackList.Add(coldOutfit.windAcc);
             coldPackList.Add(coldOutfit.rainAcc);
 
-            var stringlist = coldOutfit.ToString();
-            Console.WriteLine(stringlist);
+            return coldList;
+
         }
+        public static string crazi = ColdOutfit.MakeColdOutfit().ToString();
+
     }
 }
 

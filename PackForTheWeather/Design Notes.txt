@@ -43,3 +43,10 @@ weather
 	= day 2 forecast
 	= day 3 forecast
 
+	PARSE OUT OF JSON:
+	DAY 1  - 5 
+	WIND
+	PRECIP Chance
+	TEMP Feels Like
+
+	

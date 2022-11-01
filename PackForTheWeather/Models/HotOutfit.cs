@@ -7,13 +7,11 @@
             Outfit hotOutfit = new Outfit();
 
             hotOutfit.top = "□ T Shirt";
-            hotOutfit.bottom = "□ Shorts";
-           
+            hotOutfit.bottom = "□ Shorts";           
            
             hotOutfit.footwear = "□ Open Toe Shoes";
             hotOutfit.acc = "□ Hat, Sunglasses";        
-            hotOutfit.rainAcc = "□ Umbrella";
-            
+            hotOutfit.rainAcc = "□ Umbrella";            
         }
     }
 }
