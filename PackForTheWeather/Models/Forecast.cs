@@ -34,27 +34,26 @@ namespace PackForTheWeather.Models
             var forecastFromAPI = client.GetStringAsync(forecastRequest).Result;
 
             // var listOfDays = JObject.Parse(weather).GetValue("list").ToString();
-
+            var dayOneWeath = "";
            
         
             var dailyForecast = JObject.Parse(forecastFromAPI).GetValue("daily").ToString();
 
-            var dayOneWeather = JArray.Parse(dailyForecast).ElementAt(0).ToString();
+            var dOneParse = JArray.Parse(dailyForecast).ElementAt(0).ToString();
 
-                var temp = JObject.Parse(dayOneWeather).GetValue("feels_like").ToString();
+                var temp = JObject.Parse(dOneParse).GetValue("feels_like").ToString();
                 var feelsLike = JObject.Parse(temp).GetValue("day").ToString();
 
-                var windSpeed = JObject.Parse(dayOneWeather).GetValue("wind_speed").ToString();
-                var pop = JObject.Parse(dayOneWeather).GetValue("pop").ToString();
-
-           
+                var windSpeed = JObject.Parse(dOneParse).GetValue("wind_speed").ToString();
+                var pop = JObject.Parse(dOneParse).GetValue("pop").ToString();
+                      
 
 
             // json["list"][0]["dt"]
             //json["list"][0]["main"]["feels_like"]
 
 
-            var forecast = $"\nThe forecast for {destination} is \n{forecastFromAPI}  dailyforecast{dailyForecast} feelslike{feelsLike} windspeed{windSpeed} pop {pop} and";
+            var forecast = $"\nThe forecast for {destination} is \n   \nfeelslike{feelsLike} \nwindspeed{windSpeed} \npop {pop}";
             return forecast; //forecast
 
             // next step is parse forecast.
