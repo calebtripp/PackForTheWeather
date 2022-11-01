@@ -20,7 +20,7 @@
             warmOutfit.rainAcc = "□ Umbrella";
             warmOutfit.extraLayer = "□ Shorts";
             warmOutfit.coldLayer = "□ Shorts";
-            warmOutfit.acc = "□ Shorts";
+            warmOutfit.acc = "";
         }
     }
 }

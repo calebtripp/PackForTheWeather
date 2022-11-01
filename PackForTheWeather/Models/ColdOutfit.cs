@@ -14,7 +14,7 @@ namespace PackForTheWeather.Models
             coldOutfit.outerLayer = "□ Heavy Coat";
             coldOutfit.footwear = "□ Boots";
             coldOutfit.acc = "□ Hat & Gloves";
-            coldOutfit.windAcc = "";
+            coldOutfit.windAcc = "Scarf";
             coldOutfit.rainAcc = "□ Umbrella";
 
             var coldList = coldOutfit.ToString(); // QQQQQQQ is there a way to get this to work?

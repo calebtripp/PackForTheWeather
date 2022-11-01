@@ -10,7 +10,7 @@
             hotOutfit.bottom = "□ Shorts";           
            
             hotOutfit.footwear = "□ Open Toe Shoes";
-            hotOutfit.acc = "□ Hat, Sunglasses";        
+            hotOutfit.acc = "□ Sunscreen, Swimsuit, Towel";        
             hotOutfit.rainAcc = "□ Umbrella";            
         }
     }
