@@ -4,7 +4,7 @@ using System.Diagnostics.Metrics;
 using System.IO;
 using System.Text.Json.Nodes;
 
-namespace PackForTheWeather
+namespace PackForTheWeather.Models
 {
     public class Forecast
     {
@@ -13,9 +13,9 @@ namespace PackForTheWeather
         {
             string keyFetch = File.ReadAllText("appsettings.json");
             string APIKey = JObject.Parse(keyFetch).GetValue("APIKey").ToString();
-   
+
             var client = new HttpClient();
-      
+
 
             //for duration, API returns 5 days. If less than 5 days, duration - 5 = difference. Ignore last 2 days. 
             //for comfort, use colder temp settings, may be as simple as add mid layer, or as complex as a sliding scale. 
@@ -25,14 +25,14 @@ namespace PackForTheWeather
             var coordinates = client.GetStringAsync(coordinatesFromZip).Result;
             var destination = JObject.Parse(coordinates);
             var name = destination.GetValue("name").ToString();
-            var lon =destination.GetValue("lon").ToString();
-            var lat = destination.GetValue("lat").ToString();         
+            var lon = destination.GetValue("lon").ToString();
+            var lat = destination.GetValue("lat").ToString();
 
             var forecastReq = $"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={APIKey}&units =imperial";
             var weather = client.GetStringAsync(forecastReq).Result;
             var forecast = $"\nThe forecast for {destination} is \n{weather}";
-            return forecast;        
-            
+            return forecast;
+
             // next step is parse forecast.
             // reference api weater app and possibly something like postman??
             // Read more on the docs for .notation to see if that simplifies things. 
