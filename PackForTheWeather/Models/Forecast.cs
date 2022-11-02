@@ -5,11 +5,23 @@ using System.IO;
 using System.Text.Json.Nodes;
 using System.Text.Json;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace PackForTheWeather.Models
 {
     public class Forecast
     {
+
+        public static int tShirtQ = 0;
+        public static int shortQ = 0;
+
+
+        Dictionary<string,int> PackList = new Dictionary<string, int>()
+                {
+                    {"Shorts",shortQ},
+                     {"TShirt",tShirtQ }
+
+                };
         public static string GetForecast(int zip, int duration, string comfort)
         {
             string keyFetch = File.ReadAllText("appsettings.json");
@@ -53,6 +65,18 @@ namespace PackForTheWeather.Models
                 dOne.WindSpeed = Convert.ToDouble(windSpeed);
                 dOne.RainChance = Convert.ToDouble(rainChance);
                 dayList.Add(dOne);
+
+
+                shortQ++;
+
+                //int tShirtQ = 0;
+                //int shortQ = 0;          
+
+                //var PackList = new Dictionary<string, int>()
+                //{
+                //    {"Shorts",shortQ},
+                //     {"TShirt",tShirtQ }                 
+                //};
 
             }                                  
                        
