@@ -46,14 +46,10 @@ int zip = Convert.ToInt32(Console.ReadLine());
 //var comfort = Console.ReadLine();
 
 var comfort = "";
-    var duration = 0;
-var forecastTest = Forecast.GetForecast(zip, duration, comfort);
+var duration = 0;
+var forecast = Forecast.GetForecast(zip, duration, comfort);
 
+Console.WriteLine(forecast);
 
-
-
-                Console.WriteLine(forecastTest);
-
-Console.WriteLine(ColdOutfit.crazi);
 Console.ReadKey();
 

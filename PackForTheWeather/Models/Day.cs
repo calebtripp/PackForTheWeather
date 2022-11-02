@@ -1,11 +1,9 @@
 ﻿namespace PackForTheWeather.Models
 {
     public class Day
-    {
-        public double feelsLike { get; set; }
-        public double windSpeed { get; set; }
-        public double rainChance { get; set; }
+    {       
+        public double FeelsLike { get; set; }
+        public double WindSpeed { get; set; }
+        public double RainChance { get; set; }
     }
-
-
 }

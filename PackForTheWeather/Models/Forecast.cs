@@ -4,12 +4,12 @@ using System.Diagnostics.Metrics;
 using System.IO;
 using System.Text.Json.Nodes;
 using System.Text.Json;
+using System.Diagnostics;
 
 namespace PackForTheWeather.Models
 {
     public class Forecast
     {
-
         public static string GetForecast(int zip, int duration, string comfort)
         {
             string keyFetch = File.ReadAllText("appsettings.json");
@@ -18,50 +18,48 @@ namespace PackForTheWeather.Models
             var client = new HttpClient();
 
 
-            //for duration, API returns 5 days. If less than 5 days, duration - 5 = difference. Ignore last 2 days. 
-            //for comfort, use colder temp settings, may be as simple as add mid layer, or as complex as a sliding scale. 
-
-
-            var coordinatesFromZip = $"http://api.openweathermap.org/geo/1.0/zip?zip={zip},US&appid={APIKey}";
-            var coordinates = client.GetStringAsync(coordinatesFromZip).Result;
+            var apiCoordinateCall = $"http://api.openweathermap.org/geo/1.0/zip?zip={zip},US&appid={APIKey}";
+            var coordinates = client.GetStringAsync(apiCoordinateCall).Result;
             var destination = JObject.Parse(coordinates);
             var name = destination.GetValue("name").ToString();
             var lon = destination.GetValue("lon").ToString();
             var lat = destination.GetValue("lat").ToString();
-
-            var forecastRequest = $"https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid={APIKey}&units=imperial";
-            //$"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={APIKey}&units=imperial";
-            var forecastFromAPI = client.GetStringAsync(forecastRequest).Result;
-
-            // var listOfDays = JObject.Parse(weather).GetValue("list").ToString();
-            var dayOneWeath = "";
            
-        
-            var dailyForecast = JObject.Parse(forecastFromAPI).GetValue("daily").ToString();
 
-            var dOneParse = JArray.Parse(dailyForecast).ElementAt(0).ToString();
+            var apiWeatherCall = $"https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid={APIKey}&units=imperial";
+            var FullForecastFromAPI = client.GetStringAsync(apiWeatherCall).Result;                         
+            var dailyForecast = JObject.Parse(FullForecastFromAPI).GetValue("daily").ToString();
 
-                var temp = JObject.Parse(dOneParse).GetValue("feels_like").ToString();
+            var dayToGet = 0;           
+            var dayList = new List<Day>();
+            var dOne = new Day();           
+
+            for (int i = 0; i < duration; i++)
+            {
+                for (int j = 0; j < duration; j++)
+                {
+                    dayToGet++;
+                }
+
+                var dayParse = JArray.Parse(dailyForecast).ElementAt(dayToGet).ToString();
+
+                var temp = JObject.Parse(dayParse).GetValue("feels_like").ToString();
                 var feelsLike = JObject.Parse(temp).GetValue("day").ToString();
 
-                var windSpeed = JObject.Parse(dOneParse).GetValue("wind_speed").ToString();
-                var pop = JObject.Parse(dOneParse).GetValue("pop").ToString();
-                      
+                var windSpeed = JObject.Parse(dayParse).GetValue("wind_speed").ToString();
+                var rainChance = JObject.Parse(dayParse).GetValue("pop").ToString();
 
+                dOne.FeelsLike = Convert.ToDouble(feelsLike);
+                dOne.WindSpeed = Convert.ToDouble(windSpeed);
+                dOne.RainChance = Convert.ToDouble(rainChance);
+                dayList.Add(dOne);
 
-            // json["list"][0]["dt"]
-            //json["list"][0]["main"]["feels_like"]
-
-
-            var forecast = $"\nThe forecast for {destination} is \n   \nfeelslike{feelsLike} \nwindspeed{windSpeed} \npop {pop}";
-            return forecast; //forecast
-
-            // next step is parse forecast.
-            // reference api weater app and possibly something like postman??
-            // Read more on the docs for .notation to see if that simplifies things. 
-
-
+            }                                  
+                       
+            return dayList.ToString();
 
         }
+
+
     }
 }      
