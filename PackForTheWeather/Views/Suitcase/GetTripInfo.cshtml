@@ -1,0 +1,7 @@
+﻿@model PackListDictionary
+
+
+@foreach (var item in @Model.packList)
+{
+    <h1>Clothes: @item.Key Quantity: @item.Value</h1>
+}

@@ -2,25 +2,12 @@
 {
     public class CoolOutfit
     {
-        public static void MakeWarmOutfit()
-        {
-            Outfit coolOutfit = new Outfit();
+        public string Top { get; set; } = "□ Longsleeve Shirt";
+        public string bottom { get; set; } = "□ Pants";
+        public string midLayer { get; set; } = "□ Hoodie/Sweater";
+        public string footwear { get; set; } = "□ Closed Toe Shoes";
+        public string windAcc { get; set; } = "□ Light Jacket";
+        public string rainAcc { get; set; } = "□ Umbrella";
 
-            coolOutfit.top = "□ Shorts";
-            coolOutfit.bottom = "□ Shorts";
-            coolOutfit.footwear = "□ Open Toe Shoes";
-            coolOutfit.footwear = "□ Shorts";
-
-            coolOutfit.coldAcc = "□ Shorts";
-            coolOutfit.warmAcc = "□ Shorts";
-            coolOutfit.windAcc = "□ Shorts";
-            coolOutfit.midLayer = "□ Shorts";
-            coolOutfit.outerLayer = "□ Shorts";
-
-            coolOutfit.rainAcc = "□ Umbrella";
-            coolOutfit.extraLayer = "□ Shorts";
-            coolOutfit.coldLayer = "□ Shorts";
-            coolOutfit.acc = "□ Shorts";
-        }
     }
 }

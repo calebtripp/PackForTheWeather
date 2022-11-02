@@ -1,17 +1,12 @@
 ﻿namespace PackForTheWeather.Models
-{
+{    
     public class HotOutfit
     {
-        public static void MakeHotOutfit()
-        {
-            Outfit hotOutfit = new Outfit();
-
-            hotOutfit.top = "□ T Shirt";
-            hotOutfit.bottom = "□ Shorts";           
-           
-            hotOutfit.footwear = "□ Open Toe Shoes";
-            hotOutfit.acc = "□ Sunscreen, Swimsuit, Towel";        
-            hotOutfit.rainAcc = "□ Umbrella";            
-        } 
+        public string Top { get; set; } = "□ T Shirt";
+        public string bottom { get; set; } = "□ Shorts";
+        public string footwear { get; set; } = "□ Open Toe Shoes";
+        public string acc { get; set; } = "□ Sunscreen, Swimsuit, Towel";
+        public string rainAcc { get; set; } = "□ Umbrella";    
+        
     }
 }

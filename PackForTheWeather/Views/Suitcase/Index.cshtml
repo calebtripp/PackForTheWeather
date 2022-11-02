@@ -1,0 +1,33 @@
+﻿@model ZipTripComfort
+<h1>Enter the Zip, Trp </h1>
+
+<div class="input">
+    <div class="container">
+        <form asp-controller="Suitcase" asp-action="GetTripInfo" method="post">
+            <div class="zip input">
+                <label for="usr">Destination Zip Code (US, 5 digits only)</label>
+                <input type="text" class="form-control" id="usr">
+            </div>
+            <div class="duration input">
+                <label asp-for="Trip">Trip Duration in Days (Max 5)</label>
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="comfort input">
+                <label asp-for="ComfortLevel">Temperature Comfort:</label>
+                <select asp-for="ComfortLevel" class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">I'M READY TO PACK!</button>
+        </form>      
+        
+    </div>
+</div>
