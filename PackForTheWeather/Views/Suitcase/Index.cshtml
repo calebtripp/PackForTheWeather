@@ -4,10 +4,10 @@
 <div class="input">
     <div class="container">
         <form asp-controller="Suitcase" asp-action="GetTripInfo" method="post">
-            <div class="">
+            @*<div class="">
                 <label asp-for="APIKey">Enter the API Key here</label>
                 <input asp-for="APIKey" type="text" class="form-control">
-            </div>
+            </div>*@
             <div class="zip input">
                 <label asp-for="Zip">Destination Zip Code (US, 5 digits only)</label>
                 <input asp-for="Zip" type="text" class="form-control" >
@@ -27,9 +27,9 @@
             </div>
             <div class="comfort input">
                 <label asp-for="ComfortLevel">Please enter your temperature comfort level on a scale of 1-3:<br /> 
-                    1 you typically feel colder than others<br />  
-                    2 you feel about the same as others<br />  
-                    3 you typically feel warmer than others<br />
+                    1 - you typically feel colder than others<br />  
+                    2 - you feel about the same as others<br />  
+                    3 - you typically feel warmer than others<br />
                 </label>
                 <select asp-for="ComfortLevel" class="form-control" id="sel1">                    
                     <option>1</option>
