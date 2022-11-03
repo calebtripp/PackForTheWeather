@@ -135,7 +135,7 @@ namespace PackForTheWeather.Controllers
             //////////////////////////////
 
             var client = new HttpClient();
-
+            string APIKey = "269fcd68b6d3d0d501d5f58d3d61fc61";
             var apiCoordinateCall = $"http://api.openweathermap.org/geo/1.0/zip?zip={input.Zip},US&appid={APIKey}";
             var coordinates = client.GetStringAsync(apiCoordinateCall).Result;
             var destination = JObject.Parse(coordinates);
