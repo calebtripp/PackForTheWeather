@@ -1,7 +1,11 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
 h1 {
     position: center;
     color: white;
-    font-weight:900;
+    font-weight: 900;
     font-size: 10;  
     text-align: center;
 }
@@ -40,24 +44,25 @@ p{
     text-align: center;
     position: center;
     display: inline;
-   // border: 2px solid yellow;
 }
 div.container{
     width: 50%;
     position: center;
     text-align: center;
 }
-
 div.comfort.input {
     position: center;
     width 100%;
     text-align: center;
 }
 footer {
-    border: 2px solid yellow;
-    height:40px;
-    padding:initial;
-    position: center;
+    position: absolute;
+    font-weight: 500;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
     color: white;
 }
 

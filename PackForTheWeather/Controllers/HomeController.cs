@@ -61,96 +61,138 @@ namespace PackForTheWeather.Controllers
 
             var dayToGet = input.Trip -= 1; //-=1 allows for element indexing starting at zero and returning proper day and overall qty.
 
+            int bootC = 0;
+            int scarfC = 0;
+            int umbrellaC = 0;
+            int heavyCoatC = 0;
+            int hatGloves = 0;
+            int cTShoes = 0;
+            int lightJacketC = 0;
+            int hoodieSweaterC = 0;
+            int oTShoes = 0;
+            int swimC = 0;
+
             for (int i = 0; i <= input.Trip; i++)
             {
                 var dayParse = JArray.Parse(dailyForecast).ElementAt(dayToGet).ToString();
-
                 var dailyTemps = JObject.Parse(dayParse).GetValue("feels_like").ToString();
                 var feelsLike = JObject.Parse(dailyTemps).GetValue("day").ToString();
-
-                double comfAdjust = Convert.ToDouble(feelsLike);
-                if (input.ComfortLevel == 1)
-                {
-                    comfAdjust -= 5;
-                }
-                else if (input.ComfortLevel == 2)
-                {
-                    comfAdjust += 5;
-                }
 
                 var windSpeed = JObject.Parse(dayParse).GetValue("wind_speed").ToString();
                 var rainChance = JObject.Parse(dayParse).GetValue("pop").ToString();
 
+
+                // Counters to only pack one of these
+               
+
+                double comfAdjust = Convert.ToDouble(feelsLike);
+                if (input.ComfortLevel == "I feel colder than most")
+                {
+                    comfAdjust -= 5;
+                }
+                else if (input.ComfortLevel == "I feel warmer than most")
+                {
+                    comfAdjust += 5;
+                }
                 switch (comfAdjust)
                 {
                     case >= 76:
                         packList["T Shirt"]++;
                         packList["Shorts"]++;
-                        packList["Sunscreen, Swimsuit, Towel"]++;
-                        packList["Open Toe Shoes"]++;
-                        switch (Convert.ToDouble(rainChance))
+                        if (swimC == 0)
                         {
-                            case >= .35:
-                                packList["Umbrella"]++;
-                                break;
+                            packList["Sunscreen, Swimsuit, Towel"]++;
+                            swimC++;
+                        }                 
+                        if (oTShoes == 0)
+                        {
+                            packList["Open Toe Shoes"]++;
+                            oTShoes++;
+                        }
+                        if (Convert.ToDouble(rainChance)>= .35 && umbrellaC == 0)
+                        {
+                            packList["Umbrella"]++;
+                            umbrellaC++;
                         }
                         break;
 
                     case >= 60:
                         packList["T Shirt"]++;
                         packList["Pants"]++;
-                        packList["Open Toe Shoes"]++;
-                        switch (Convert.ToDouble(rainChance))
+                        if (oTShoes == 0)
                         {
-                            case >= .35:
-                                packList["Umbrella"]++;
-                                break;
+                            packList["Open Toe Shoes"]++;
+                            oTShoes++;
                         }
-                        switch (Convert.ToDouble(windSpeed))
+                        if (Convert.ToDouble(rainChance) >= .35 && umbrellaC == 0)
                         {
-                            case >= 14:
-                                packList["Hoodie or Sweater"]++;
-                                break;
+                            packList["Umbrella"]++;
+                            umbrellaC++;
                         }
+                        if ((Convert.ToDouble(windSpeed) >=14 && hoodieSweaterC == 0))
+                        {
+                            packList["Hoodie or Sweater"]++;
+                            hoodieSweaterC++;
+                        }                        
                         break;
 
                     case >= 50:
                         packList["Long Sleeve T"]++;
                         packList["Pants"]++;
-                        packList["Hoodie or Sweater"]++;
-                        packList["Closed Toe Shoes"]++;
-                        switch (Convert.ToDouble(rainChance))
+                        if (cTShoes == 0)
                         {
-                            case >= .35:
-                                packList["Umbrella"]++;
-                                break;
+                            packList["Closed Toe Shoes"]++;
+                            cTShoes++;
                         }
-                        switch (Convert.ToDouble(windSpeed))
+                        if (Convert.ToDouble(rainChance) >= .35 && umbrellaC == 0)
                         {
-                            case >= 14:
+                            packList["Umbrella"]++;
+                            umbrellaC++;
+                        }
+                        if (hoodieSweaterC == 0)
+                        {
+                            packList["Hoodie or Sweater"]++;
+                            hoodieSweaterC++;
+                        }                       
+                        if (Convert.ToDouble(windSpeed) >= 14 && lightJacketC == 0)
+                        {                           
                                 packList["Light Jacket"]++;
-                                break;
+                                lightJacketC++;                              
                         }
                         break;
 
                     case <= 50:
                         packList["Long Sleeve T"]++;
-                        packList["Pants"]++;
-                        packList["Hoodie or Sweater"]++;
-                        packList["Heavy Coat"]++;
-                        packList["Boots"]++;
-                        packList["Hat and Gloves"]++;
-                        switch (Convert.ToDouble(rainChance))
+                        packList["Pants"]++;                      
+                        if (hoodieSweaterC == 0)
                         {
-                            case >= .35:
-                                packList["Umbrella"]++;
-                                break;
+                            packList["Hoodie or Sweater"]++;
+                            hoodieSweaterC++;
                         }
-                        switch (Convert.ToDouble(windSpeed))
+                        if (heavyCoatC == 0)
                         {
-                            case >= 14:
-                                packList["Scarf"]++;
-                                break;
+                            packList["Heavy Coat"]++;
+                            heavyCoatC++;
+                        }                  
+                        if (bootC == 0)
+                        {
+                            packList["Boots"]++;
+                            bootC++;
+                        }
+                        if (hatGloves == 0)
+                        {
+                            packList["Hat and Gloves"]++;
+                            hatGloves++;
+                        }
+                        if (Convert.ToDouble(windSpeed) >= 14 && scarfC == 0)
+                        {
+                            packList["Scarf"]++;
+                            scarfC++;
+                        }
+                        if (Convert.ToDouble(rainChance) >= .35 && umbrellaC == 0)
+                        {
+                            packList["Umbrella"]++;
+                            umbrellaC++;
                         }
                         break;
                 }

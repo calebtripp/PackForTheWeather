@@ -19,15 +19,15 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="nav-itemborder-3">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
                             <a> class="nav-link text-dark" asp-area="" asp-controller="Home" </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Suitcase" asp-action="Index">Pack List</a>
-                        </li>
+                        @* <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Suitcase" asp-action="Index">Pack List</a>
+                        </li>*@
                     </ul>
                 </div>
             </div>
@@ -36,14 +36,15 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+           
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; Caleb Tripp 2022 - PackForTheWeather 
+    <footer class="text-muted">
+        <div class="container-fluid">
+            &copy; Caleb Tripp 2022 - PackForTheWeather
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
