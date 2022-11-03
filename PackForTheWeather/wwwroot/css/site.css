@@ -3,11 +3,13 @@ html {
     min-height: 100%;
 }
 h1 {
-    position: center;
     color: white;
-    font-weight: 900;
-    font-size: 10;  
+    font-size: 60px;
+    font-weight: 700;
     text-align: center;
+    position: center;
+    width: 100%;
+    margin: auto;
 }
 h2 {
     text-align: center;
@@ -21,10 +23,11 @@ h3 {
 }
 body {
     margin-bottom: 60px;
-    background-image: url('/css/Images/laura-vinck-Hyu76loQLdk-unsplash.jpg');
+    background-image: url(/css/Images/pexels-johannes-plenio-1118873.jpg);
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     color: #FFFFFF;
+    text-align: center;
 }
 form {
     color: white;
@@ -46,11 +49,21 @@ p{
     display: inline;
 }
 div.container{
-    width: 50%;
+    width: 75%;
     position: center;
     text-align: center;
 }
 div.comfort.input {
+    position: center;
+    width 100%;
+    text-align: center;
+}
+div.duration.input {
+    position: center;
+    width 100%;
+    text-align: center;
+}
+div.zip.input {
     position: center;
     width 100%;
     text-align: center;
@@ -65,6 +78,36 @@ footer {
     line-height: 60px;
     color: white;
 }
+.display-4 {
+    position: center;
+    width: 100%;
+    font-size: 85px;
+    font-weight: 400;
+    text-align: center;
+    margin: auto;
+    border: 2px solid yellow;
+}
+main.pb-3 {
+    text-align: center;
+    text-align: justify;
+    text-align: left;
+    position: center;
+    margin: auto;
+    font-size: 25px;
+    font-weight: 400;
+}
+div.input{   
+    margin: auto;
+    position: ;
+    width: 100%;
+    text-align: left;
+}
 
+}
+div.inputthings{
+    position: center;
+    width: 75%;
+    margin: auto;
+}
 
 

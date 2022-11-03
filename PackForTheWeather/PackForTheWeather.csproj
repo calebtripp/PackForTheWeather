@@ -8,9 +8,13 @@
 
   <ItemGroup>
     <Compile Remove="Views\Suitcase\**" />
+    <Compile Remove="wwwroot\css\NewFolder\**" />
     <Content Remove="Views\Suitcase\**" />
+    <Content Remove="wwwroot\css\NewFolder\**" />
     <EmbeddedResource Remove="Views\Suitcase\**" />
+    <EmbeddedResource Remove="wwwroot\css\NewFolder\**" />
     <None Remove="Views\Suitcase\**" />
+    <None Remove="wwwroot\css\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,11 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\css\Images\tom-barrett-hgGplX3PFBg-unsplash.jpg" />
     <Content Remove="wwwroot\css\istockphoto-1084287002-1024x1024.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\css\NewFolder\istockphoto-1084287002-1024x1024.jpg" />
   </ItemGroup>
 
   <ItemGroup>

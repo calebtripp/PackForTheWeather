@@ -4,15 +4,18 @@
 @model ZipTripComfort
 <!DOCTYPE html>
 <html lang="en">
-<head>
-</head>
-<h1 class="display-4">PackForTheWeather!</h1>
-<body>
-    <p>When you're ready to pack for the weather,<br /> enter your information below and get packing!</p>
+
+    <h1>PackForTheWeather!</h1>
+    
+
+<body>    
+
+    <p>When you're planning your getaway,<br /> enter your information below and get packing!</p>
     <div class="text-center">
     </div>
     <div class="input">
         <div class="container">
+            <div class="inputthings">
             <form asp-controller="Home" asp-action="GetTripInfo" method="post">
                 <div class="zip input">
                     <label asp-for="Zip">Destination Zip Code (US 5 digits) <br /></label>
@@ -48,8 +51,13 @@
                 <br />
                 <button type="submit" class="btn btn-primary btn-lg btn-block">I'M READY TO PACK!</button>
             </form>
+            </div>
+
+            </div>
         </div>
-    </div>
+
+
+
 </body>
 </html>
 
