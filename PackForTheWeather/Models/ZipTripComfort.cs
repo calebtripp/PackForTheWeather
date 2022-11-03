@@ -7,6 +7,7 @@ namespace PackForTheWeather.Models
         public int Zip { get; set; }
         public int Trip { get; set; }
         public int ComfortLevel { get; set; }
+        public string APIKey { get; set; }
 
     }
 }

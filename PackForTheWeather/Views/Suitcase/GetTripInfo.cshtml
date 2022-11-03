@@ -1,7 +1,12 @@
-﻿@model PackListDictionary
+﻿@using PackForTheWeather.ViewModel
+@model GetTripInfoViewModel
 
 
-@foreach (var item in @Model.packList)
+@foreach (var item in @Model.PackList)
 {
-    <h1>Clothes: @item.Key Quantity: @item.Value</h1>
+    @if(item.Value == 0){
+        continue;
+    }
+    <span>@item.Key:     </span> <span>@item.Value</span>
+    <br />
 }
