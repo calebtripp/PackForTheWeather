@@ -3,12 +3,10 @@
 
 @foreach (var item in @Model.PackList)
 {
-    
-    @if(item.Value == 0)
+    @if (item.Value == 0)
     {
         continue;
     }
-
     <span>□  @item.Key:     </span> <span>@item.Value</span>
     <br />
 }

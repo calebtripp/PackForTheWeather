@@ -7,12 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModel\**" />
     <Compile Remove="Views\Suitcase\**" />
     <Compile Remove="wwwroot\css\NewFolder\**" />
+    <Content Remove="ViewModel\**" />
     <Content Remove="Views\Suitcase\**" />
     <Content Remove="wwwroot\css\NewFolder\**" />
+    <EmbeddedResource Remove="ViewModel\**" />
     <EmbeddedResource Remove="Views\Suitcase\**" />
     <EmbeddedResource Remove="wwwroot\css\NewFolder\**" />
+    <None Remove="ViewModel\**" />
     <None Remove="Views\Suitcase\**" />
     <None Remove="wwwroot\css\NewFolder\**" />
   </ItemGroup>

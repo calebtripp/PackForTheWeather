@@ -4,60 +4,52 @@
 @model ZipTripComfort
 <!DOCTYPE html>
 <html lang="en">
-
-    <h1>PackForTheWeather!</h1>
-    
-
-<body>    
-
+<h1>PackForTheWeather!</h1>
+<body>
     <p>When you're planning your getaway,<br /> enter your information below and get packing!</p>
     <div class="text-center">
     </div>
     <div class="input">
         <div class="container">
             <div class="inputthings">
-            <form asp-controller="Home" asp-action="GetTripInfo" method="post">
-                <div class="zip input">
-                    <label asp-for="Zip">Destination Zip Code (US 5 digits) <br /></label>
-                    <input asp-for="Zip" type="text" class="form-control">
-                    <br />
-                </div>
-                <div class="duration input">
-                    <label asp-for="Trip"><br />Trip Duration in Days (Max 8)<br /></label>
-                    <select asp-for="Trip" class="form-control" id="sel1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                    </select>
-                </div>
-                <div class="comfort input">
-                    <label asp-for="ComfortLevel">
+                <form asp-controller="Home" asp-action="GetTripInfo" method="post">
+                    <div class="zip input">
+                        <label asp-for="Zip">Destination Zip Code (US 5 digits) <br /></label>
+                        <input asp-for="Zip" type="text" class="form-control">
                         <br />
-                        Select your temperature comfort level
+                    </div>
+                    <div class="duration input">
+                        <label asp-for="Trip"><br />Trip Duration in Days (Max 8)<br /></label>
+                        <select asp-for="Trip" class="form-control" id="sel1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+                    <div class="comfort input">
+                        <label asp-for="ComfortLevel">
+                            <br />
+                            Select your temperature comfort level
+                            <br />
+                        </label>
                         <br />
-                    </label>
+                        <select asp-for="ComfortLevel" class="form-control" id="sel1">
+                            <option>I feel the same as others</option>
+                            <option>I feel colder than most</option>
+                            <option>I feel warmer than most</option>
+                        </select>
+                    </div>
                     <br />
-                    <select asp-for="ComfortLevel" class="form-control" id="sel1">
-                        <option>I feel the same as others</option>
-                        <option>I feel colder than most</option>
-                        <option>I feel warmer than most</option>
-                    </select>
-                </div>
-                <br />
-                <button type="submit" class="btn btn-primary btn-lg btn-block">I'M READY TO PACK!</button>
-            </form>
-            </div>
-
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">I'M READY TO PACK!</button>
+                </form>
             </div>
         </div>
-
-
-
+    </div>
 </body>
 </html>
 

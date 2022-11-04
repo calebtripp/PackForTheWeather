@@ -47,10 +47,12 @@ namespace PackForTheWeather.Controllers
 
             var key = System.IO.File.ReadAllText("appsettings.json");
             string APIKey = JObject.Parse(key).GetValue("APIKey").ToString();
+
             var client = new HttpClient();
 
             var apiCoordinateCall = $"http://api.openweathermap.org/geo/1.0/zip?zip={input.Zip},US&appid={APIKey}";
             var coordinates = client.GetStringAsync(apiCoordinateCall).Result;
+
             var destination = JObject.Parse(coordinates);
             var lon = destination.GetValue("lon").ToString();
             var lat = destination.GetValue("lat").ToString();
@@ -59,7 +61,7 @@ namespace PackForTheWeather.Controllers
             var FullForecastFromAPI = client.GetStringAsync(apiWeatherCall).Result;
             var dailyForecast = JObject.Parse(FullForecastFromAPI).GetValue("daily").ToString();
 
-            var dayToGet = input.Trip -= 1; //-=1 allows for element indexing starting at zero and returning proper day and overall qty.
+            var dayToGet = input.Trip -= 1; //enables correct day and correct day total to be selected from forecast via element indexing.
 
             int bootC = 0;
             int scarfC = 0;
@@ -81,10 +83,6 @@ namespace PackForTheWeather.Controllers
                 var windSpeed = JObject.Parse(dayParse).GetValue("wind_speed").ToString();
                 var rainChance = JObject.Parse(dayParse).GetValue("pop").ToString();
 
-
-                // Counters to only pack one of these
-               
-
                 double comfAdjust = Convert.ToDouble(feelsLike);
                 if (input.ComfortLevel == "I feel colder than most")
                 {
@@ -103,13 +101,13 @@ namespace PackForTheWeather.Controllers
                         {
                             packList["Sunscreen, Swimsuit, Towel"]++;
                             swimC++;
-                        }                 
+                        }
                         if (oTShoes == 0)
                         {
                             packList["Open Toe Shoes"]++;
                             oTShoes++;
                         }
-                        if (Convert.ToDouble(rainChance)>= .35 && umbrellaC == 0)
+                        if (Convert.ToDouble(rainChance) >= .35 && umbrellaC == 0)
                         {
                             packList["Umbrella"]++;
                             umbrellaC++;
@@ -129,11 +127,11 @@ namespace PackForTheWeather.Controllers
                             packList["Umbrella"]++;
                             umbrellaC++;
                         }
-                        if ((Convert.ToDouble(windSpeed) >=14 && hoodieSweaterC == 0))
+                        if ((Convert.ToDouble(windSpeed) >= 14 && hoodieSweaterC == 0))
                         {
                             packList["Hoodie or Sweater"]++;
                             hoodieSweaterC++;
-                        }                        
+                        }
                         break;
 
                     case >= 50:
@@ -153,17 +151,17 @@ namespace PackForTheWeather.Controllers
                         {
                             packList["Hoodie or Sweater"]++;
                             hoodieSweaterC++;
-                        }                       
+                        }
                         if (Convert.ToDouble(windSpeed) >= 14 && lightJacketC == 0)
-                        {                           
-                                packList["Light Jacket"]++;
-                                lightJacketC++;                              
+                        {
+                            packList["Light Jacket"]++;
+                            lightJacketC++;
                         }
                         break;
 
-                    case <= 50:
+                    case < 50:
                         packList["Long Sleeve T"]++;
-                        packList["Pants"]++;                      
+                        packList["Pants"]++;
                         if (hoodieSweaterC == 0)
                         {
                             packList["Hoodie or Sweater"]++;
@@ -173,7 +171,7 @@ namespace PackForTheWeather.Controllers
                         {
                             packList["Heavy Coat"]++;
                             heavyCoatC++;
-                        }                  
+                        }
                         if (bootC == 0)
                         {
                             packList["Boots"]++;
