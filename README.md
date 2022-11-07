@@ -1,4 +1,4 @@
-# PackForTheWeather (In Progress)
+# PackForTheWeather
 
 App purpose:
 PackForTheWeather provides a personalized outfit packing list based on destination, trip duration and user comfort zone.
