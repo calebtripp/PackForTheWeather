@@ -1,4 +1,4 @@
-# PackForTheWeather (In Progress)
+# PackForTheWeather
 
 App purpose:
 PackForTheWeather provides a personalized outfit packing list based on destination, trip duration and user comfort zone.
@@ -11,4 +11,7 @@ An outfit packing list will be generated based on the location forecast, trip du
 Planned Future Features:
 Ability to edit the packing list to add and subtract items as well as change quantities. 
 List converted to pdf download and/or printing capabilities with checkboxes.
-Display forecast as well.
+Display forecast for trip as well.
+
+Planned Optimization:
+Better Single Responsibility Principle adherence. (PackList Method Logic)
