@@ -95,6 +95,8 @@ main.pb-3 {
     margin: auto;
     font-size: 25px;
     font-weight: 400;
+  
+    width: 30%;
 }
 div.input{   
     margin: auto;
@@ -110,4 +112,8 @@ div.inputthings{
     margin: auto;
 }
 
+div.packingList {
+    box-shadow: 0 30px 40px rgba(0,0,0,.1);
+    width: 100%;
+}
 

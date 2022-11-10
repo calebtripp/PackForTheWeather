@@ -1,6 +1,7 @@
 ﻿@using PackForTheWeather.ViewModel
 @model GetTripInfoViewModel
 
+<div class="packingList">
 @foreach (var item in @Model.PackList)
 {
     @if (item.Value == 0)
@@ -10,3 +11,4 @@
     <span>□  @item.Key:     </span> <span>@item.Value</span>
     <br />
 }
+</div>
