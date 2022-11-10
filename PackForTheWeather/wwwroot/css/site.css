@@ -41,6 +41,7 @@ p{
     font-size: 24px;
     font-weight:500;
     color: white;
+    padding: 25px;
 }
 .form-control {
     width: 100%;
@@ -49,9 +50,11 @@ p{
     display: inline;
 }
 div.container{
-    width: 75%;
+    width: 100%;
     position: center;
     text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 div.comfort.input {
     position: center;
@@ -79,7 +82,7 @@ footer {
     color: white;
 }
 .display-4 {
-    position: center;
+    position: relative;
     width: 100%;
     font-size: 85px;
     font-weight: 400;
@@ -95,12 +98,12 @@ main.pb-3 {
     margin: auto;
     font-size: 25px;
     font-weight: 400;
-  
-    width: 30%;
+    width: 650px;
+    padding: 25px;
 }
 div.input{   
     margin: auto;
-    position: ;
+    position: center;
     width: 100%;
     text-align: left;
 }
@@ -108,12 +111,15 @@ div.input{
 }
 div.inputthings{
     position: center;
-    width: 75%;
+    width: 100%;
     margin: auto;
 }
 
 div.packingList {
-    box-shadow: 0 30px 40px rgba(0,0,0,.1);
     width: 100%;
+ /*   border: 2px solid red;*/
+    padding-left: 165px;
+    padding-right: 165px;
+    padding-top: 50px;    
 }
 
